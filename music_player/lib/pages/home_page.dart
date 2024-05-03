@@ -3,6 +3,7 @@ import 'package:music_player/components/my_drawer.dart';
 import 'package:music_player/models/playlist_provider.dart';
 import 'package:provider/provider.dart';
 import '../models/song.dart';
+import 'song_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -12,22 +13,26 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   late final dynamic playlistProvider;
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
 
-    playlistProvider = Provider.of<PlaylistProvider>(context,listen: false);
+    playlistProvider = Provider.of<PlaylistProvider>(context, listen: false);
   }
 
-  // void goToSong(int songIndex){
-  //   playlistProvider.currentSongIndex = songIndex;
+  void goToSong(int songIndex) {
+    playlistProvider.currentSongIndex = songIndex;
 
-  //   Navigator.push(context
-  //   , MaterialPageRoute(builder: (context)=>SongPage()))
-  // }
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => SongPage(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +54,7 @@ class _HomePageState extends State<HomePage> {
                 title: Text(song.songName),
                 subtitle: Text(song.artistName),
                 leading: Image.asset(song.albumArtImagePath),
-                // onTap: ()=> goToSong(index),
+                onTap: () => goToSong(index),
               );
             },
           );

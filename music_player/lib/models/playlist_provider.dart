@@ -17,8 +17,8 @@ class PlaylistProvider extends ChangeNotifier {
       audioPath: "assets/audio/song2.mp3",
     ),
     Song(
-      songName: "Is Qadr",
-      artistName: "Darshan Raval",
+      songName: "Upo",
+      artistName: "Ankan Kumar",
       albumArtImagePath: "assets/images/img3.jpeg",
       audioPath: "assets/audio/song1.mp3",
     ),
